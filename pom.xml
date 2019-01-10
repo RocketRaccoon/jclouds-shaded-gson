@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>rocket.raccoon</groupId>
+    <artifactId>jclouds-shaded-gson</artifactId>
+    <version>2.1.1</version>
+    <url>https://github.com/RocketRaccoon/jclouds-shaded-gson</url>
+
+    <scm>
+        <connection>scm:git:git@github.com:RocketRaccoon/jclouds-shaded-gson.git</connection>
+        <developerConnection>scm:git:git@github.com:RocketRaccoon/jclouds-shaded-gson.git</developerConnection>
+        <url>https://github.com/RocketRaccoon/jclouds-shaded-gson</url>
+    </scm>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jclouds</groupId>
+            <artifactId>jclouds-all</artifactId>
+            <version>2.1.1</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.4.2</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.4.3</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <relocations>
+                                <relocation>
+                                    <pattern>com.google.code.gson</pattern>
+                                    <shadedPattern>com.shaded.code.gson</shadedPattern>
+                                </relocation>
+                            </relocations>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>bintray-rocketraccoon-jclouds-shaded-gson-repo</id>
+            <name>rocketraccoon-jclouds-shaded-gson-repo</name>
+            <url>https://api.bintray.com/maven/rocketraccoon/jclouds-shaded-gson-repo/jclouds-shaded-gson/;publish=1</url>
+        </repository>
+    </distributionManagement>
+
+
+</project>
