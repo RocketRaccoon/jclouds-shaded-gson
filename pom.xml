@@ -14,12 +14,12 @@
         <developerConnection>scm:git:git@github.com:RocketRaccoon/jclouds-shaded-gson.git</developerConnection>
         <url>https://github.com/RocketRaccoon/jclouds-shaded-gson</url>
     </scm>
+
     <modules>
         <module>jclouds</module>
         <module>enterprise</module>
         <module>jsch</module>
     </modules>
-
 
 
 </project>

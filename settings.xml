@@ -5,7 +5,7 @@
         <server>
             <id>bintray-rocketraccoon-jclouds-shaded-gson-repo</id>
             <username>rocketraccoon</username>
-            <password>70c21bb63ca5854c584c7dc0dc50615bf75995e4</password>
+            <password>8cff127cc81e2e18996401330aa9539c6c2acd88</password>
         </server>
     </servers>
     <profiles>
